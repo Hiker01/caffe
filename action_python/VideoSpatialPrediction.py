@@ -55,8 +55,8 @@ def VideoSpatialPrediction(
 
     rgb = np.concatenate((rgb_1,rgb_2,rgb_3,rgb_4,rgb_5,rgb_f_1,rgb_f_2,rgb_f_3,rgb_f_4,rgb_f_5), axis=3)
 
-    # substract mean
-    d = sio.loadmat(mean_file)
+    # substract mean                             减去均值对全局运动进行补偿
+    d = sio.loadmat(mean_file)                 
     image_mean = d['image_mean']
 
     rgb = rgb[...] - np.tile(image_mean[...,np.newaxis], (1, 1, 1, rgb.shape[3]))
