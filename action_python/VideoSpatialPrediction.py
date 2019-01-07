@@ -4,7 +4,7 @@ Customize as needed:
 e.g. num_categories, layer for feature extraction, batch_size
 '''
 
-import glob
+import glob               #可以查找符合特定规则的文件路径名
 import os
 import numpy as np
 import math
@@ -23,8 +23,8 @@ def VideoSpatialPrediction(
         ):
 
     if num_frames == 0:
-        imglist = glob.glob(os.path.join(vid_name, '*image_*.jpg'))
-        duration = len(imglist)
+        imglist = glob.glob(os.path.join(vid_name, '*image_*.jpg'))              #将路径拼接，并利用glob模块获得路径名列表
+        duration = len(imglist)                                                  #获得该视频包含的image_帧
     else:
         duration = num_frames
 
